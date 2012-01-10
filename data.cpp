@@ -78,6 +78,9 @@ void data_initialize(void)
 {
 	// Initialize a connection to a data stream
 	
+	// Read the data source from the preferences
+	gui->prefs->get("data_source", data_source, 0);
+	
 	if (data_source == 0)
 	{
 		gui->app->print_to_console("Initializing Simulated data.\n");
