@@ -430,24 +430,28 @@ void USB_d2xx::writeHeader(FILE *dataFile)
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", test0[i]);
 	fprintf( dataFile, "\n\n");
+//	fprintf( dataFile, "\ndone ASIC 0 settings\n"); //debug
 	for(i=0; i<45; i++)	fprintf( dataFile, "%u\t", asic1settings[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", disable1[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", test1[i]);
 	fprintf( dataFile, "\n\n");
+//	fprintf( dataFile, "\ndone ASIC 1 settings\n"); //debug
 	for(i=0; i<45; i++)	fprintf( dataFile, "%u\t", asic2settings[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", disable2[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", test2[i]);
 	fprintf( dataFile, "\n\n");
+//	fprintf( dataFile, "\ndone ASIC 2 settings\n"); //debug
 	for(i=0; i<45; i++)	fprintf( dataFile, "%u\t", asic3settings[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", disable3[i]);
 	fprintf( dataFile, "\n");
 	for(i=0; i<64; i++)	fprintf( dataFile, "%u\t", test3[i]);
 	fprintf( dataFile, "\n");
+//	fprintf( dataFile, "\ndone ASIC 3 settings\n"); //debug
 }
 
 void USB_d2xx::writeFrame(FILE *dataFile)
@@ -768,12 +772,11 @@ void USB_d2xx::restoreSettings()
 void USB_d2xx::loadDefaultSettings()
 {
 	
-	
 	asic0settings[0] = 0;	asic1settings[0] = 0;	asic2settings[0] = 0;	asic3settings[0] = 0;
 	asic0settings[1] = 0;	asic1settings[1] = 0;	asic2settings[1] = 0;	asic3settings[1] = 0;
 	asic0settings[2] = 0;	asic1settings[2] = 0;	asic2settings[2] = 0;	asic3settings[2] = 0;
 	asic0settings[3] = 1;	asic1settings[3] = 1;	asic2settings[3] = 1;	asic3settings[3] = 1;  // sbi_hp2
-	asic0settings[4] = 1;	asic1settings[4] = 1;	asic2settings[4] = 0;	asic3settings[4] = 0;
+	asic0settings[4] = 0;	asic1settings[4] = 0;	asic2settings[4] = 0;	asic3settings[4] = 0;
 	asic0settings[5] = 0;	asic1settings[5] = 0;	asic2settings[5] = 0;	asic3settings[5] = 0;
 	asic0settings[6] = 0;	asic1settings[6] = 0;	asic2settings[6] = 0;	asic3settings[6] = 0;
 	asic0settings[7] = 1;	asic1settings[7] = 1;	asic2settings[7] = 1;	asic3settings[7] = 1;	// ro_all
@@ -812,9 +815,9 @@ void USB_d2xx::loadDefaultSettings()
 	asic0settings[40] = 7;	asic1settings[40] = 7;	asic2settings[40] = 7;	asic3settings[40] = 7;	// prebias
 	asic0settings[41] = 0;	asic1settings[41] = 0;	asic2settings[41] = 0;	asic3settings[41] = 0;
 	asic0settings[42] = 0;	asic1settings[42] = 0;	asic2settings[42] = 0;	asic3settings[42] = 0;
-	asic0settings[43] = 5;	asic1settings[43] = 5;	asic2settings[43] = 2;	asic3settings[43] = 1;	// ioffset
+	asic0settings[43] = 5;	asic1settings[43] = 5;	asic2settings[43] = 1;	asic3settings[43] = 1;	// ioffset
 	asic0settings[44] = 0;	asic1settings[44] = 0;	asic2settings[44] = 0;	asic3settings[44] = 0;
-	
+		
 	for(int i=0; i<64; i++){
 		disable0[i] = 1;
 		disable1[i] = 1;
